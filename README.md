@@ -1,8 +1,12 @@
 # My Dotfiles
 
+## kitty
+
+Add `.config/kitty/current-theme.conf` to `~/.config/kitty` to get Tokyo Night theme
+
 ## neovim
 
-Add `.config/nvim` to home directory and install lua, lazy.nvim and a bunch of stuff
+Add `.config/nvim` to `~/.config/nvim` directory and install lua, lazy.nvim and a bunch of stuff
 
 ## tmux
 
