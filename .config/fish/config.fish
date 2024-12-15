@@ -1,10 +1,13 @@
 #!/usr/bin/env fish
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# For devices without Homebrew this will cause an error
+eval "$(/opt/homebrew/bin/brew shellenv)" 
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    starship init fish | source
+
+    # You need to install Starship first or this will cause an error
+    starship init fish | source 
 end
 
 fish_add_path "~/.cargo/bin"
