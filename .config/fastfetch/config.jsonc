@@ -15,6 +15,9 @@
             "─────────────────" // {$1}, used in Custom module
         ],
         "color": "blue",
+        "color": { 
+            "separator" : "magenta"
+        },
         "key": {
             "paddingLeft": 2
         }
@@ -23,49 +26,109 @@
         {
             "type": "custom", // HardwareStart
             // {#1} is equivalent to `\u001b[1m`. {#} is equivalent to `\u001b[m`
-            "format": "┌{$1} {#1}(Hardware Information){#} {$1}┐"
+            "format": "┌{$1} {#1}(hardware){#} {$1}┐"
         },
-        "host",
-        "cpu",
-        "gpu",
-        "disk",
-        "memory",
-        "swap",
-        "display",
-        "brightness",
-        "battery",
-        "poweradapter",
-        "bluetooth",
-        "sound",
+        {
+            "key": "host",
+            "type": "host"
+        },
+        {
+            "key": "cpu",
+            "type": "cpu"
+        },
+        {
+            "key": "gpu",
+            "type": "gpu"
+        },
+        {
+            "key": "disk",
+            "type": "disk"
+        },
+        {
+            "key": "ram",
+            "type": "memory"
+        },
+        {
+            "key": "swap",
+            "type": "swap"
+        },
+        {
+            "key": "display",
+            "type": "display"
+        },
+        {
+            "key": "swap",
+            "type": "swap"
+        },
+        {
+            "key": "brightness",
+            "type": "brightness"
+        },
+        {
+            "key": "battery",
+            "type": "battery"
+        },
+        {
+            "key": "sound",
+            "type": "sound"
+        },
         "gamepad",
         {
             "type": "custom", // SoftwareStart
-            "format": "├{$1} {#1}(Software Information){#} {$1}┤"
+            "format": "├{$1} {#1}(software){#} {$1}┤"
         },
         {
             "type": "title",
-            "key": "Title", // Title module has no key by default, so that icon is not displayed
+            "key": "name", // Title module has no key by default, so that icon is not displayed
             "format": "{user-name}@{host-name}"
         },
-        "os",
-        "kernel",
-        "lm",
-        "de",
-        "wm",
-        "shell",
-        "terminal",
-        "terminalfont",
-        "theme",
-        "icons",
-        "packages",
-        "uptime",
-        "locale",
+        {
+            "key": "os",
+            "type": "os"
+        },
+        {
+            "key": "kernel",
+            "type": "kernel"
+        },
+        {
+            "key": "de",
+            "type": "de"
+        },
+        {
+            "key": "wm",
+            "type": "wm"
+        },
+        {
+            "key": "shell",
+            "type": "shell"
+        },
+        {
+            "key": "term",
+            "type": "terminal"
+        },
+        {
+            "key": "font",
+            "type": "terminalfont"
+        },
+        {
+            "key": "pkgs",
+            "type": "packages"
+        },
+        {
+            "key": "uptime",
+            "type": "uptime"
+        },
+        {
+            "key": "locale",
+            "type": "locale"
+        },
         {
             "type": "custom", // InformationEnd
-            "format": "└{$1}──────────────────────{$1}┘"
+            "format": "└{$1}────────────{$1}┘"
         },
         {
             "type": "colors",
+            "symbol": "background",
             "paddingLeft": 2
         }
     ]
