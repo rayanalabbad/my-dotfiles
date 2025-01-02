@@ -64,3 +64,17 @@ require'lspconfig'.lua_ls.setup {
 }
 
 require'lspconfig'.svelte.setup {}
+require'lspconfig'.pyright.setup {}
+require'lspconfig'.pylsp.setup {}
+require'lspconfig'.ts_ls.setup {}
+require'lspconfig'.eslint.setup {}
+require'lspconfig'.jsonls.setup {}
+require'lspconfig'.html.setup {}
+require'lspconfig'.stylelint_lsp.setup {}
+require'lspconfig'.cssls.setup {}
+require'lspconfig'.clangd.setup {
+    cmd = {
+        "clangd",
+        "--header-insertion=never"
+    },
+}

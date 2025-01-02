@@ -18,6 +18,11 @@
     "light": "Tokyo Night Light",
     "dark": "Tokyo Night"
   },
+  "terminal": {
+    "dock": "bottom",
+    "font_size": 12,
+    "font_family": "BitstromWera Nerd Font Mono"
+  },
   "lsp": {
     "clangd": {
       "binary": {
