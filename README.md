@@ -1,5 +1,7 @@
 # My Dotfiles
 
+# MOVING TO NIXOS ⚠️‼️
+
 ## kitty
 
 Add `.config/kitty/current-theme.conf` to `~/.config/kitty` to get Tokyo Night theme
