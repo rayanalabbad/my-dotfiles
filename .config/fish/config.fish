@@ -5,14 +5,9 @@ if status is-interactive
     starship init fish | source
 end
 
-function figloldate
-    clear
-    date | figlet -c | lolcat -as 100
-end
-
-source "$HOME/.cargo/env.fish"
-fish_add_path "~/.cargo/bin"
+#source "$HOME/.cargo/env.fish"
+#fish_add_path "~/.cargo/bin"
 set -x TERM xterm-256color
 ulimit -n 32768
 
-fish_add_path ~/.nimble/bin
+#fish_add_path ~/.nimble/bin
