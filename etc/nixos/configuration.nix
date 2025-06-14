@@ -41,6 +41,8 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
+  
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -151,3 +153,4 @@
   system.stateVersion = "25.05"; # Did you read the comment?
 
 }
+
