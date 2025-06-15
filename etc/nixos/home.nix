@@ -85,6 +85,7 @@
       font-family = "Hack Nerd Font Mono";
       font-size = "12";
       theme = "tokyonight";
+      window-decoration = false;
       window-padding-y = "5";
       window-padding-x = "5";
     };
