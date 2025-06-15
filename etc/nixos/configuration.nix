@@ -98,7 +98,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    home-manager
+    vim
     wget
     neovim
     fastfetch
@@ -109,6 +110,10 @@
     gh
     fish
     starship
+    # Tmux
+    tmux
+    tmuxPlugins.sensible
+    tmuxPlugins.tokyo-night-tmux
     # Fonts
     hack-font
     inter
@@ -124,6 +129,24 @@
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
   services.flatpak.enable = true;
+
+  #programs.tmux = {
+  #  enable = true;
+  #  clock24 = true;
+  #  extraConfig = '' 
+  #    set -g default-terminal "xterm-256color"
+  #    set-option -sa terminal-features ',xterm-256color:RGB'
+  #    set-option -g default-terminal "tmux-256color"
+  #    set-option -ga terminal-features ",xterm-256color:usstyle"
+  #    set -g mouse on 
+  #    set -g @plugin 'tmux-plugins/tmux-sensible'
+  #    set -g @plugin janoamaral/tokyo-night-tmux'
+  #    unbind C-b
+  #    set-option -g prefix C-a
+  #    bind-key C-a send-prefix
+  #    set-option -g allow-rename off
+  #  '';
+  #};
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -153,4 +176,3 @@
   system.stateVersion = "25.05"; # Did you read the comment?
 
 }
-
