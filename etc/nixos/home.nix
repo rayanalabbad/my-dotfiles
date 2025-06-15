@@ -89,6 +89,22 @@
       window-padding-x = "5";
     };
   };
+  
+  programs.helix = {
+    enable = true;
+    settings = {
+      theme = "tokyonight";
+      editor = {
+        line-number = "relative";
+      };
+    };
+    languages = {
+      language-server.clangd = {
+        command = "clangd";
+        args = [ "-header-insertion=never" ];
+      }; 
+    };
+  };
 
   programs.git = {
     enable = true;

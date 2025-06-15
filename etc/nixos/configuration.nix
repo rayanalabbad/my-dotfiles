@@ -100,8 +100,9 @@
   environment.systemPackages = with pkgs; [
     home-manager
     vim
-    wget
     neovim
+    helix
+    wget
     fastfetch
     htop
     btop
