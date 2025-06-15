@@ -1,3 +1,0 @@
-[[language]]
-name = "cpp"
-language-server = { command = "clangd", args=["-header-insertion=never"]}
