@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -111,6 +111,7 @@
     gh
     fish
     starship
+    dconf2nix
     # Tmux
     tmux
     tmuxPlugins.sensible
@@ -125,6 +126,7 @@
     ghostty
     discord
     firefox
+    inputs.zen-browser.packages."${system}".default
   ];
 
   programs.fish.enable = true;

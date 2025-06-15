@@ -83,7 +83,7 @@
     enable = true;
     settings = {
       font-family = "Hack Nerd Font Mono";
-      font-size = "11";
+      font-size = "12";
       theme = "tokyonight";
       window-padding-y = "5";
       window-padding-x = "5";
@@ -110,6 +110,42 @@
     enable = true;
     userName  = "Rayan Alabbad";
     userEmail = "rayan@rayanabbad.com";
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      enable-hot-corners = false;
+      color-scheme = "prefer-dark";
+      clock-show-weekday = true;
+      clock-show-seconds = true;
+      show-weekdate = true;
+    };
+    "org/gnome/desktop/background" = {
+      color-shading-type = "solid";
+      picture-options = "zoom";
+      picture-uri = "file:///home/rayanalabbad/Pictures/wallpaper.png";
+      picture-uri-dark = "file:///home/rayanalabbad/Pictures/wallpaper.png";
+      primary-color = "#000000000000";
+      secondary-color = "#000000000000";
+    };
+    "org/gnome/desktop/screensaver" = {
+      color-shading-type = "solid";
+      picture-options = "zoom";
+      picture-uri = "file:///home/rayanalabbad/Pictures/wallpaper.png";
+      picture-uri-dark = "file:///home/rayanalabbad/Pictures/wallpaper.png";
+      primary-color = "#000000000000";
+      secondary-color = "#000000000000";
+    };
+    "org/gnome/desktop/peripheral/mouse" = {
+      natural-scroll = true;
+    };
+    "org/gnome/shell" = {
+      favorite-apps = [
+        "discord.desktop" 
+        "zen-beta.desktop" 
+        "com.mitchellh.ghostty.desktop" 
+      ];
+    };
   };
 
   # Let Home Manager install and manage itself.
