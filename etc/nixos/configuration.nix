@@ -111,7 +111,18 @@
     gh
     fish
     starship
+    yazi
+    fzf
+    zoxide
     dconf2nix
+    # GPU
+    vulkan-tools
+    glxinfo
+    mesa
+    libva
+    # Gnome Extensions
+    gnomeExtensions.dash-to-dock
+    gnomeExtensions.blur-my-shell
     # Tmux
     tmux
     tmuxPlugins.sensible
@@ -122,10 +133,16 @@
     corefonts
     vista-fonts
     wineWow64Packages.fonts
+    # Web
+    bun
+    nodejs_24
+    prettier
     # Desktop applications
     ghostty
     discord
+    vesktop
     firefox
+    davinci-resolve
     inputs.zen-browser.packages."${system}".default
   ];
 

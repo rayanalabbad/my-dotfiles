@@ -115,6 +115,8 @@
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
+      font-name = "Inter 12";
+      show-battery-percentage = true;
       enable-hot-corners = false;
       color-scheme = "prefer-dark";
       clock-show-weekday = true;
@@ -140,11 +142,24 @@
     "org/gnome/desktop/peripheral/mouse" = {
       natural-scroll = true;
     };
+    "org/gnome/desktop/wm/keybindings" = {
+      toggle-fullscreen = [ "<Super>f" ];
+    };
+    "org/gnome/shell/extensions/dash-to-dock" = {
+      dock-position = "LEFT";
+      intellihide-mode = "ALL_WINDOWS";
+      show-trash = false;
+    };
     "org/gnome/shell" = {
       favorite-apps = [
-        "discord.desktop" 
-        "zen-beta.desktop" 
+        "zen-beta.desktop"
+        "vesktop.desktop"
+	"davinci-resolve.desktop" 
         "com.mitchellh.ghostty.desktop" 
+      ];
+      enabled-extensions = [
+        "dash-to-dock@micxgx.gmail.com"
+        "blur-my-shell@aunetx"
       ];
     };
   };
