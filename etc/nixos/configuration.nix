@@ -53,7 +53,7 @@
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "us";
+    layout = "us,de,ara";
     variant = "";
   };
 
@@ -95,6 +95,10 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  environment.shellAliases = {
+    ls = "eza";
+    cd = "z";
+  };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -102,6 +106,7 @@
     vim
     neovim
     helix
+    wl-clipboard
     wget
     fastfetch
     htop
@@ -114,15 +119,35 @@
     yazi
     fzf
     zoxide
+    eza
+    bat
+    dipc
     dconf2nix
+    firebase-tools
+    http-server
     # GPU
     vulkan-tools
     glxinfo
     mesa
     libva
-    # Gnome Extensions
+    intel-media-driver
+    intel-compute-runtime
+    intel-graphics-compiler
+    opencl-headers
+    ocl-icd
+    intel-ocl
+    vaapiIntel
+    vaapiVdpau
+    libvdpau-va-gl
+    # Gnome
     gnomeExtensions.dash-to-dock
     gnomeExtensions.blur-my-shell
+    gnomeExtensions.user-themes
+    gnomeExtensions.search-light
+    papirus-icon-theme
+    apple-cursor
+    gnome-tweaks
+    tokyonight-gtk-theme
     # Tmux
     tmux
     tmuxPlugins.sensible
@@ -133,21 +158,72 @@
     corefonts
     vista-fonts
     wineWow64Packages.fonts
-    # Web
+    google-fonts
+    # Compilers
+    gcc
+    libgccjit
+    rocmPackages.llvm.clang-unwrapped
+    binutils
+    rustup
+    rustc
+    cargo
+    python3
+    jdk
+    go
+    sqlite
+    elixir
+    # Language servers
+    beamMinimal28Packages.elixir-ls
+    clang-tools
+    typescript-language-server
+    vscode-langservers-extracted
+    # Web development
     bun
     nodejs_24
     prettier
+    # Graphic Design
+    gimp3
+    inkscape-with-extensions
+    krita
+    audacity
+    blender
     # Desktop applications
     ghostty
     discord
     vesktop
     firefox
     davinci-resolve
+    eyedropper
+    vlc
+    qalculate-gtk
     inputs.zen-browser.packages."${system}".default
+    libreoffice-qt6-fresh
+    sqlitebrowser
+    kdePackages.dolphin
+    thunderbird
+    kdePackages.kate
+    speedcrunch
   ];
 
+  environment.gnome.excludePackages = with pkgs; [
+    nautilus
+    geary
+    gnome-contacts
+    gnome-calendar
+    epiphany
+    gnome-software
+    gnome-text-editor
+    gnome-calculator
+    gnome-tour
+    gnome-console
+    totem
+    gnome-maps
+  ];
+
+  fonts.enableDefaultPackages = true;
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
+  documentation.man.generateCaches = false;
   services.flatpak.enable = true;
 
   #programs.tmux = {
