@@ -48,8 +48,10 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
+  #services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
+
+  services.displayManager.sddm.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -125,6 +127,7 @@
     dconf2nix
     firebase-tools
     http-server
+    zellij
     # GPU
     vulkan-tools
     glxinfo
@@ -139,11 +142,16 @@
     vaapiIntel
     vaapiVdpau
     libvdpau-va-gl
+    # Desktop Environment
+    kdePackages.sddm
+    hyprland
+    kitty #remove later
     # Gnome
     gnomeExtensions.dash-to-dock
     gnomeExtensions.blur-my-shell
     gnomeExtensions.user-themes
     gnomeExtensions.search-light
+    gnomeExtensions.improved-workspace-indicator
     papirus-icon-theme
     apple-cursor
     gnome-tweaks
@@ -203,6 +211,8 @@
     thunderbird
     kdePackages.kate
     speedcrunch
+    prismlauncher
+    morgen
   ];
 
   environment.gnome.excludePackages = with pkgs; [
