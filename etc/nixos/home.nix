@@ -96,6 +96,13 @@
         };
     };
 
+    programs.zellij = {
+	enableFishIntegration = true;
+	settings = {
+	    theme = "tokyo-night-dark";
+	};
+    };
+
     programs.helix = {
         enable = true;
         settings = {
@@ -389,6 +396,9 @@
                     "browser.newtabpage.activity-stream.feeds.section.highlights" = false;
                     "browser.newtabpage.activity-stream.feeds.topsites" = false;
                     "browser.newtabpage.activity-stream.enabled" = false;
+		    "browser.uidirection" = "ltr";
+		    "intl.uidirection.locale" = "ltr";
+		    "intl.uidirection.en" = "ltr";
                 };
             };
         };
@@ -453,10 +463,10 @@
                     "davinci-resolve.desktop" 
                     "com.mitchellh.ghostty.desktop" 
             ];
-            enabled-extensions = [
-                "dash-to-dock@micxgx.gmail.com"
-                    "blur-my-shell@aunetx"
-                    "user-theme@gnome-shell-extensions.gcampax.github.com"
+            enabled-extensions = with pkgs.gnomeExtensions; [
+                dash-to-dock.extensionUuid
+                blur-my-shell.extensionUuid
+                user-themes.extensionUuid
             ];
         };
     };
