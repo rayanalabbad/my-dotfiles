@@ -46,12 +46,15 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  #services.xserver.videoDrivers = [ "intel" "modesetting" ]; #intel
 
   # Enable the GNOME Desktop Environment.
   #services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
   services.displayManager.sddm.enable = true;
+  programs.hyprland.enable = true;
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -90,8 +93,7 @@
     #  thunderbird
     ];
   };
-
-  # Install firefox.
+    # Install firefox.
   programs.firefox.enable = true;
 
   # Allow unfree packages
@@ -145,7 +147,12 @@
     # Desktop Environment
     kdePackages.sddm
     hyprland
+    hyprpaper
+    hyprpanel
     kitty #remove later
+    rofi-wayland
+    apple-cursor
+    waybar
     # Gnome
     gnomeExtensions.dash-to-dock
     gnomeExtensions.blur-my-shell
@@ -153,7 +160,6 @@
     gnomeExtensions.search-light
     gnomeExtensions.improved-workspace-indicator
     papirus-icon-theme
-    apple-cursor
     gnome-tweaks
     tokyonight-gtk-theme
     # Tmux
@@ -161,8 +167,9 @@
     tmuxPlugins.sensible
     tmuxPlugins.tokyo-night-tmux
     # Fonts
-    hack-font
+    nerd-fonts.hack
     inter
+    inter-nerdfont
     corefonts
     vista-fonts
     wineWow64Packages.fonts
@@ -229,6 +236,19 @@
     totem
     gnome-maps
   ];
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+   localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
+
+  #hardware.enableAllFirmware = true;
+  #hardware.graphics.enable = true;
+  #hardware.graphics.enable32Bit = true;
+  hardware.logitech.wireless.enable = true;
+  hardware.logitech.wireless.enableGraphical = true;
 
   fonts.enableDefaultPackages = true;
   programs.fish.enable = true;
