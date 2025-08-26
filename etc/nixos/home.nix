@@ -78,32 +78,6 @@
         size = 24;
     };
 
-
-
-    programs.fish = {
-        enable = true;
-        shellAliases = {
-            ls = "eza";
-            cd = "z";
-        };
-        interactiveShellInit = ''
-            set -g fish_greeting
-            starship init fish | source
-            '';
-    };
-
-    programs.ghostty = {
-        enable = true;
-        settings = {
-            font-family = "Hack Nerd Font Mono Regular";
-            font-size = "12";
-            theme = "tokyonight";
-# window-decoration = false;
-            window-padding-y = "5";
-            window-padding-x = "5";
-        };
-    };
-
     programs.zellij = {
 	enableFishIntegration = true;
 	settings = {
@@ -125,10 +99,6 @@
                 args = [ "-header-insertion=never" ];
             }; 
         };
-    };
-
-    programs.zoxide = {
-        enable = true;
     };
 
     programs.git = {
