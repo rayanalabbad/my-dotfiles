@@ -1,9 +1,11 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, lib, isDarwin, ... }:
 
 {
   imports = [
     inputs.nixvim.homeModules.nixvim
     ./nvim.nix
+  ] ++ lib.optionals isDarwin [
+    ./macos.nix
   ];
 
   home.stateVersion = "24.05";
@@ -36,13 +38,23 @@
     fzf
     zoxide
     yazi
-    defaultbrowser
 
     # development tools
     gh
     cargo
     rustc
     rust-analyzer
+    bun
+    nodejs
+    vitejs
+    tailwindcss
+    go
+    nixd
+    prettier
+    svelte-language-server
+    typescript-language-server
+    vscode-langservers-extracted
+    tailwindcss-language-server
 
     # build tools
     gcc
@@ -57,10 +69,7 @@
     prettier
     rustfmt
     clang-tools
-
-    # utilities
-    vlc-bin
-    libreoffice-bin
+    tree-sitter
   ];
 
   # -----------------------------
@@ -135,7 +144,6 @@
       window-padding-y = 5;
       background-opacity = 0.4;
       background-blur = true;
-      macos-titlebar-style = "hidden";
     };
   };
 
@@ -213,6 +221,169 @@
       bind r source-file ~/.tmux.conf
       set -g pane-border-lines single
     '';
+  };
+
+  # -----------------------------
+  # helix
+  # -----------------------------
+  programs.helix = {
+    enable = true;
+
+    settings = {
+      theme = "tokyonight";
+      editor = {
+        line-number = "relative";
+        cursor-shape = {
+          insert = "bar";
+          normal = "block";
+          select = "underline";
+        };
+        indent-guides.render = true;
+        soft-wrap.enable = true;
+        auto-completion = true;
+        auto-format = true;
+        completion-trigger-len = 1;
+        true-color = true;
+        file-picker.hidden = false;
+      };
+    };
+
+    languages = {
+      language-server = {
+        nixd = {
+          command = "nixd";
+        };
+        svelte-language-server = {
+          command = "svelteserver";
+          args = [ "--stdio" ];
+        };
+        tailwindcss = {
+          command = "tailwindcss-language-server";
+          args = [ "--stdio" ];
+        };
+        eslint = {
+          command = "vscode-eslint-language-server";
+          args = [ "--stdio" ];
+        };
+        clangd = {
+          command = "clangd";
+          args = [ "--query-driver=/run/current-system/sw/bin/g++,**/g++" ];
+        };
+      };
+
+      language = [
+        {
+          name = "nix";
+          auto-format = true;
+          formatter = {
+            command = "nixfmt";
+          };
+          language-servers = [ "nixd" ];
+        }
+        {
+          name = "svelte";
+          auto-format = true;
+          formatter = {
+            command = "prettier";
+            args = [
+              "--parser"
+              "html"
+            ];
+          };
+          language-servers = [
+            "svelte-language-server"
+            "tailwindcss"
+            "eslint"
+          ];
+        }
+        {
+          name = "typescript";
+          auto-format = true;
+          formatter = {
+            command = "prettier";
+            args = [
+              "--parser"
+              "typescript"
+            ];
+          };
+          language-servers = [
+            "typescript-language-server"
+            "tailwindcss"
+            "eslint"
+          ];
+        }
+        {
+          name = "javascript";
+          auto-format = true;
+          formatter = {
+            command = "prettier";
+            args = [
+              "--parser"
+              "babel"
+            ];
+          };
+          language-servers = [
+            "typescript-language-server"
+            "tailwindcss"
+            "eslint"
+          ];
+        }
+        {
+          name = "css";
+          auto-format = true;
+          formatter = {
+            command = "prettier";
+            args = [
+              "--parser"
+              "css"
+            ];
+          };
+          language-servers = [
+            "vscode-css-language-server"
+            "tailwindcss"
+          ];
+        }
+        {
+          name = "html";
+          auto-format = true;
+          formatter = {
+            command = "prettier";
+            args = [
+              "--parser"
+              "html"
+            ];
+          };
+          language-servers = [
+            "vscode-html-language-server"
+            "tailwindcss"
+          ];
+        }
+        {
+          name = "json";
+          auto-format = true;
+          formatter = {
+            command = "prettier";
+            args = [
+              "--parser"
+              "json"
+            ];
+          };
+        }
+        {
+          name = "rust";
+          auto-format = true;
+          language-servers = [ "rust-analyzer" ];
+        }
+        {
+          name = "c";
+          language-servers = [ "clangd" ];
+        }
+        {
+          name = "cpp";
+          language-servers = [ "clangd" ];
+        }
+      ];
+    };
   };
 
   #------------------------------

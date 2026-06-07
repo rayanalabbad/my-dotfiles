@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.nixvim = {
@@ -64,7 +64,9 @@
       telescope.enable = true;
       treesitter = {
         enable = true;
-        settings.ensure_installed = "all";
+        nixvimInjections = true;
+        grammarPackages = pkgs.vimPlugins.nvim-treesitter.passthru.allGrammars;
+        settings.ensure_installed = [];
       };
       web-devicons.enable = true;
 
@@ -127,13 +129,35 @@
             enable = true;
             cmd = [
               "clangd"
-              "--query-driver=**/g++"
+              "--query-driver=/run/current-system/sw/bin/g++,**/g++"
+
             ];
           };
           rust_analyzer = {
             enable = true;
             installCargo = false;
             installRustc = false;
+          };
+          html = {
+            enable = true;
+          };
+          cssls = {
+            enable = true;
+          };
+          ts_ls = {
+            enable = true;
+          };
+          tailwindcss = {
+            enable = true;
+          };
+          eslint = {
+            enable = true;
+          };
+          jsonls = {
+            enable = true;
+          };
+          svelte = {
+            enable = true;
           };
         };
       };
