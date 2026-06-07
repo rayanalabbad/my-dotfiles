@@ -38,6 +38,7 @@
     fzf
     zoxide
     yazi
+    tree
 
     # development tools
     gh

@@ -6,6 +6,7 @@
     vlc-bin
     libreoffice-bin
     obsidian
+    utm
   ];
 
   programs.ghostty.settings.macos-titlebar-style = "hidden";
@@ -13,37 +14,6 @@
 
   home.file = pkgs.lib.mkIf pkgs.stdenv.isDarwin {
     ".local/include/bits/stdc++.h".text = ''
-      // C++ includes used for precompiling -*- C++ -*-
-
-      // Copyright (C) 2003-2018 Free Software Foundation, Inc.
-      //
-      // This file is part of the GNU ISO C++ Library.  This library is free
-      // software; you can redistribute it and/or modify it under the
-      // terms of the GNU General Public License as published by the
-      // Free Software Foundation; either version 3, or (at your option)
-      // any later version.
-
-      // This library is distributed in the hope that it will be useful,
-      // but WITHOUT ANY WARRANTY; without even the implied warranty of
-      // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-      // GNU General Public License for more details.
-
-      // Under Section 7 of GPL version 3, you are granted additional
-      // permissions described in the GCC Runtime Library Exception, version
-      // 3.1, as published by the Free Software Foundation.
-
-      // You should have received a copy of the GNU General Public License and
-      // a copy of the GCC Runtime Library Exception along with this program;
-      // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
-      // <http://www.gnu.org/licenses/>.
-
-      /** @file stdc++.h
-       *  This is an implementation file for a precompiled header.
-       */
-
-      // 17.4.1.2 Headers
-
-      // C
       #ifndef _GLIBCXX_NO_ASSERT
       #include <cassert>
       #endif
@@ -62,7 +32,6 @@
       #include <cstdlib>
       #include <cstring>
       #include <ctime>
-
       #if __cplusplus >= 201103L
       #include <ccomplex>
       #include <cfenv>
@@ -75,8 +44,6 @@
       #include <cwchar>
       #include <cwctype>
       #endif
-
-      // C++
       #include <algorithm>
       #include <bitset>
       #include <complex>
@@ -109,7 +76,6 @@
       #include <utility>
       #include <valarray>
       #include <vector>
-
       #if __cplusplus >= 201103L
       #include <array>
       #include <atomic>
@@ -132,11 +98,9 @@
       #include <unordered_map>
       #include <unordered_set>
       #endif
-
       #if __cplusplus >= 201402L
       #include <shared_mutex>
       #endif
-
       #if __cplusplus >= 201703L
       #include <charconv>
       #include <filesystem>
