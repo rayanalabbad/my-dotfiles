@@ -46,6 +46,7 @@
     rustc
     rust-analyzer
     bun
+    typescript
     nodejs
     vitejs
     tailwindcss

@@ -66,7 +66,10 @@
         enable = true;
         nixvimInjections = true;
         grammarPackages = pkgs.vimPlugins.nvim-treesitter.passthru.allGrammars;
-        settings.ensure_installed = [];
+        settings = {
+          highlight.enable = true;
+          ensure_installed = [];
+        };
       };
       web-devicons.enable = true;
 
@@ -80,6 +83,7 @@
             json = [ "prettier" ];
             css = [ "prettier" ];
             html = [ "prettier" ];
+            svelte = [ "prettier" ];
             rust = [ "rustfmt" ];
           };
         };
@@ -146,6 +150,7 @@
           };
           ts_ls = {
             enable = true;
+            filetypes = [ "javascript" "javascriptreact" "typescript" "typescriptreact" ];
           };
           tailwindcss = {
             enable = true;
@@ -185,6 +190,12 @@
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "NvimTree",
         callback = fix_nvimtree_transparency,
+      })
+
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function(args)
+          pcall(vim.treesitter.start, args.buf)
+        end,
       })
     '';
 
