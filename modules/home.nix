@@ -39,12 +39,14 @@
     zoxide
     yazi
     tree
+    lazygit
 
     # development tools
     gh
     cargo
     rustc
     rust-analyzer
+    python3
     bun
     typescript
     nodejs
@@ -57,6 +59,8 @@
     typescript-language-server
     vscode-langservers-extracted
     tailwindcss-language-server
+    lua
+    love
 
     # build tools
     gcc
@@ -72,6 +76,9 @@
     rustfmt
     clang-tools
     tree-sitter
+
+    # apps
+    audacity
   ];
 
   # -----------------------------

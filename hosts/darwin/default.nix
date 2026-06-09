@@ -21,6 +21,7 @@
     "protonvpn"
     "ghostty"
     "raycast"
+    "gimp"
   ];
 
   launchd.user.agents.raycast = {
