@@ -68,7 +68,7 @@
         grammarPackages = pkgs.vimPlugins.nvim-treesitter.passthru.allGrammars;
         settings = {
           highlight.enable = true;
-          ensure_installed = [];
+          ensure_installed = [ ];
         };
       };
       web-devicons.enable = true;
@@ -85,6 +85,7 @@
             html = [ "prettier" ];
             svelte = [ "prettier" ];
             rust = [ "rustfmt" ];
+            lua = [ "stylua" ];
           };
         };
       };
@@ -150,7 +151,12 @@
           };
           ts_ls = {
             enable = true;
-            filetypes = [ "javascript" "javascriptreact" "typescript" "typescriptreact" ];
+            filetypes = [
+              "javascript"
+              "javascriptreact"
+              "typescript"
+              "typescriptreact"
+            ];
           };
           tailwindcss = {
             enable = true;
@@ -163,6 +169,24 @@
           };
           svelte = {
             enable = true;
+          };
+          lua_ls = {
+            enable = true;
+            settings = {
+              Lua = {
+                diagnostics = {
+                  globals = [ "love" ];
+                };
+
+                runtime = {
+                  version = "LuaJIT";
+                };
+
+                telemetry = {
+                  enable = false;
+                };
+              };
+            };
           };
         };
       };

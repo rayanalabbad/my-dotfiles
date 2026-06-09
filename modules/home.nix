@@ -45,7 +45,6 @@
     gh
     cargo
     rustc
-    rust-analyzer
     python3
     bun
     typescript
@@ -53,12 +52,6 @@
     vitejs
     tailwindcss
     go
-    nixd
-    prettier
-    svelte-language-server
-    typescript-language-server
-    vscode-langservers-extracted
-    tailwindcss-language-server
     lua
     love
 
@@ -76,6 +69,16 @@
     rustfmt
     clang-tools
     tree-sitter
+    stylua
+
+    # language-servers
+    svelte-language-server
+    typescript-language-server
+    vscode-langservers-extracted
+    tailwindcss-language-server
+    lua-language-server
+    rust-analyzer
+    nixd
 
     # apps
     audacity
